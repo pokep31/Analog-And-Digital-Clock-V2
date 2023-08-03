@@ -49,8 +49,11 @@ const clockText = () =>{
 
   // We add corresponding dates
   dateDayWeek.innerHTML = `${daysWeek[dayWeek]}`
-  dateMonth.innerHTML = `${months[month]} de`
-  dateDay.innerHTML = `${day} de `
+  dateMonth.innerHTML = `${months[month]}`
+
+  if (day < 10){day = `0${day}`}
+  dateDay.innerHTML = `${day}`
+
   dateYear.innerHTML = year
 
   // If hour is greater than 12 (afternoon), we subtract -12, so that is startsat 1 (afternoon)
