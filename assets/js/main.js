@@ -1,6 +1,7 @@
 /*=============== CLOCK ===============*/
 const hour = document.getElementById('clock-hour'),
-      minutes = document.getElementById('clock-minutes')
+      minutes = document.getElementById('clock-minutes'),
+      seconds = document.getElementById('clock-seconds')
 
 const clock = () =>{
   //We getthe Date object
@@ -10,11 +11,13 @@ const clock = () =>{
   // (current time) / 12(hours) * 360(deg circle)
   // (current minutes) / 60(minutes) * 360(deg circle)
   let hh = date.getHours() / 12 * 360,
-  mm = date.getMinutes() / 60 * 360
+  mm = date.getMinutes() / 60 * 360,
+  ss = date.getSeconds() / 60 * 360
   
   // We add a rotation to the elements
   hour.style.transform = `rotateZ(${hh + mm / 12}deg)`
   minutes.style.transform = `rotateZ(${mm}deg)`
+  seconds.style.transform = `rotateZ(${ss}deg)`
 }
 setInterval(clock, 1000) // (Updates every 1s) 1000 = 1s 
 
@@ -46,29 +49,29 @@ const clockText = () =>{
 
   // We add corresponding dates
   dateDayWeek.innerHTML = `${daysWeek[dayWeek]}`
-  dateMonth.innerHTML = `${months[month]}`
-  dateDay.innerHTML = `${day}, `
+  dateMonth.innerHTML = `${months[month]} de`
+  dateDay.innerHTML = `${day} de `
   dateYear.innerHTML = year
 
   // If hour is greater than 12 (afternoon), we subtract -12, so that is startsat 1 (afternoon)
-  if (hh >=12){
-      hh = hh - 12
-      ampm = 'PM'
-  } else{
-      ampm = 'AM'
-  }
+  // if (hh >=12){
+  //     hh = hh - 12
+  //     ampm = 'PM'
+  // } else{
+  //     ampm = 'AM'
+  // }
 
-  textAmPm.innerHTML = ampm
+  // textAmPm.innerHTML = ampm
 
   // When it is 0 hours (early morning), we tell it to change to 12 hours
-  if (hh == 0){hh = 12}
+  //if (hh == 0){hh = 12}
 
   // If hours are less than 10, add a 0 (01, 02, 03,...09)
   if (hh<10){hh = `0${hh}`}    
-  textHour.innerHTML = `${hh}: `
+  textHour.innerHTML = `${hh} : `
 
   // If minutes are less than 10, add a 0 (01, 02, 03,...09)
-  if (mm<10){mm = `0{mm}`}
+  if (mm<10){mm = `0${mm}`}
   textMinutes.innerHTML = mm
 
   }

@@ -97,8 +97,14 @@ body {
   height: 38px;
   background-color: red;
 }
+.clock__seconds{
+  width: 2px;
+  height: 40px;
+  background-color: black;
+}
 .clock__hour,
-.clock__minutes{
+.clock__minutes,
+.clock__seconds{
   box-shadow: 0 0 6px hsla(0, 0%, 0%, .25);
   position: absolute;
   bottom: 50%;
@@ -113,8 +119,7 @@ body {
   margin-bottom: 1rem;
 }
 
-.clock__day-week,
-.clock__text-ampm{
+.clock__day-week{
   font-size: var(--small-font-size);
   font-weight: 500;
 }
@@ -171,6 +176,10 @@ body {
     width: 8px;
     height: 8px;
   }
+  .clock__seconds{
+    width: 3px;
+    height: 70px;
+  }
   .clock__minutes{
     width: 3px;
     height: 62px;
@@ -182,8 +191,7 @@ body {
   .clock__date{
     margin-bottom: 1.5rem;
   }
-  .clock__day-week,
-  .clock__text-ampm{
+  .clock__day-week{
     font-size: var(--h2-font-size);
   }
   .clock__month,
